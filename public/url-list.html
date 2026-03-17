@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>화면작업 완료 서버 URL 목록</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .url-list {
+            padding: 40px;
+        }
+        
+        .url-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 15px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .url-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+        
+        .url-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .url-content {
+            flex: 1;
+        }
+        
+        .url-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+        
+        .url-link {
+            color: #64748b;
+            font-size: 0.95em;
+            word-break: break-all;
+        }
+        
+        .external-icon {
+            width: 20px;
+            height: 20px;
+            margin-left: 15px;
+            opacity: 0.5;
+            flex-shrink: 0;
+        }
+        
+        .footer {
+            background: #f8fafc;
+            padding: 30px;
+            text-align: center;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .date {
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        
+        .note {
+            font-size: 0.85em;
+            font-style: italic;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .url-list {
+                padding: 20px;
+            }
+            
+            .url-item {
+                padding: 15px;
+            }
+            
+            .icon {
+                width: 35px;
+                height: 35px;
+                margin-right: 15px;
+            }
+            
+            .url-title {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>화면작업 완료</h1>
+            <p>서버 URL 목록</p>
+        </div>
+        
+        <div class="url-list">
+          <a href="https://flops.fave.at/ui-guide.html" class="url-item" target="_blank">
+            <div class="url-content">
+                <div class="url-title">ui 가이드</div>
+                <div class="url-link">https://flops.fave.at/ui-guide.html</div>
+            </div>
+            <svg class="external-icon" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+            </svg>
+          </a> 
+
+            <a href="https://flops.fave.at/#/" class="url-item" target="_blank">
+                <div class="url-content">
+                    <div class="url-title">메인-인트로01</div>
+                    <div class="url-link">https://flops.fave.at/#/</div>
+                </div>
+                <svg class="external-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                </svg>
+            </a>
+
+            <a href="https://flops.fave.at/#/home02" class="url-item" target="_blank">
+              <div class="url-content">
+                  <div class="url-title">메인-인트로02</div>
+                  <div class="url-link">https://flops.fave.at/#/home02</div>
+              </div>
+              <svg class="external-icon" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                  <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+              </svg>
+          </a>
+
+          <a href="https://flops.fave.at/#/home03" class="url-item" target="_blank">
+            <div class="url-content">
+                <div class="url-title">메인-인트로03</div>
+                <div class="url-link">https://flops.fave.at/#/home03</div>
+            </div>
+            <svg class="external-icon" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+            </svg>
+        </a>
+            
+            <a href="https://flops.fave.at/#/default" class="url-item" target="_blank">
+                <div class="url-content">
+                    <div class="url-title">기본 업무화면</div>
+                    <div class="url-link">https://flops.fave.at/#/default</div>
+                </div>
+                <svg class="external-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                </svg>
+            </a>
+            
+            <a href="https://flops.fave.at/#/no-result" class="url-item" target="_blank">
+                <div class="url-content">
+                    <div class="url-title">검색-결과없음</div>
+                    <div class="url-link">https://flops.fave.at/#/no-result</div>
+                </div>
+                <svg class="external-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                </svg>
+            </a>
+            
+            <a href="https://flops.fave.at/#/notice" class="url-item" target="_blank">
+                <div class="url-content">
+                    <div class="url-title">공지사항</div>
+                    <div class="url-link">https://flops.fave.at/#/notice</div>
+                </div>
+                <svg class="external-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                </svg>
+            </a>
+            
+            <a href="https://flops.fave.at/#/notice-edit" class="url-item" target="_blank">
+                <div class="url-content">
+                    <div class="url-title">공지사항-삭제/수정 팝업</div>
+                    <div class="url-link">https://flops.fave.at/#/notice-edit</div>
+                </div>
+                <svg class="external-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                </svg>
+            </a>
+            
+            <a href="https://flops.fave.at/#/notice-no-result" class="url-item" target="_blank">
+                <div class="url-content">
+                    <div class="url-title">공지사항-결과없음</div>
+                    <div class="url-link">https://flops.fave.at/#/notice-no-result</div>
+                </div>
+                <svg class="external-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                </svg>
+            </a>
+            
+            <a href="https://flops.fave.at/#/alarm" class="url-item" target="_blank">
+                <div class="url-content">
+                    <div class="url-title">알림</div>
+                    <div class="url-link">https://flops.fave.at/#/alarm</div>
+                </div>
+                <svg class="external-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                </svg>
+            </a>
+            
+            <a href="https://flops.fave.at/#/my-report" class="url-item" target="_blank">
+                <div class="url-content">
+                    <div class="url-title">MyReport</div>
+                    <div class="url-link">https://flops.fave.at/#/my-report</div>
+                </div>
+                <svg class="external-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                </svg>
+            </a>
+            
+            <a href="https://flops.fave.at/#/my-role" class="url-item" target="_blank">
+                <div class="url-content">
+                    <div class="url-title">MyRole</div>
+                    <div class="url-link">https://flops.fave.at/#/my-role</div>
+                </div>
+                <svg class="external-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                </svg>
+            </a>
+            
+            <a href="https://flops.fave.at/#/my-task" class="url-item" target="_blank">
+                <div class="url-content">
+                    <div class="url-title">MyTask</div>
+                    <div class="url-link">https://flops.fave.at/#/my-task</div>
+                </div>
+                <svg class="external-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                </svg>
+            </a>
+            
+            <a href="https://flops.fave.at/#/favorites" class="url-item" target="_blank">
+                <div class="url-content">
+                    <div class="url-title">즐겨찾기</div>
+                    <div class="url-link">https://flops.fave.at/#/favorites</div>
+                </div>
+                <svg class="external-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                </svg>
+            </a>
+            
+            <a href="https://flops.fave.at/#/sitemap" class="url-item" target="_blank">
+                <div class="url-content">
+                    <div class="url-title">사이트맵</div>
+                    <div class="url-link">https://flops.fave.at/#/sitemap</div>
+                </div>
+                <svg class="external-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                </svg>
+            </a>
+
+            <a href="https://flops.fave.at/#/error-404" class="url-item" target="_blank">
+              <div class="url-content">
+                  <div class="url-title">erro 404</div>
+                  <div class="url-link">https://flops.fave.at/#/error-404</div>
+              </div>
+              <svg class="external-icon" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                  <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+              </svg>
+            </a>
+
+            <a href="https://flops.fave.at/#/error-505" class="url-item" target="_blank">
+              <div class="url-content">
+                  <div class="url-title">erro 505</div>
+                  <div class="url-link">https://flops.fave.at/#/error-505</div>
+              </div>
+              <svg class="external-icon" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                  <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+              </svg>
+            </a>          
+            
+            <a href="https://flops.fave.at/#/maintenance" class="url-item" target="_blank">
+              <div class="url-content">
+                  <div class="url-title">점검 중</div>
+                  <div class="url-link">https://flops.fave.at/#/maintenance</div>
+              </div>
+              <svg class="external-icon" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                  <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+              </svg>
+            </a> 
+
+            <a href="https://flops.fave.at/#/login-sign-in" class="url-item" target="_blank">
+              <div class="url-content">
+                  <div class="url-title">로그인 - sign in </div>
+                  <div class="url-link">https://flops.fave.at/#/login-sign-in</div>
+              </div>
+              <svg class="external-icon" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                  <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+              </svg>
+            </a> 
+
+            <a href="https://flops.fave.at/#/login-confirm" class="url-item" target="_blank">
+              <div class="url-content">
+                  <div class="url-title">로그인 - confirm</div>
+                  <div class="url-link">https://flops.fave.at/#/login-confirm</div>
+              </div>
+              <svg class="external-icon" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                  <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+              </svg>
+            </a> 
+        </div>
+        
+        <div class="footer">
+            <div class="date">작성일: 2025년 6월 27일</div>
+            <div class="note">각 링크를 클릭하면 새 탭에서 해당 페이지가 열립니다.</div>
+        </div>
+    </div>
+</body>
+</html>

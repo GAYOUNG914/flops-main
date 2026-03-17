@@ -1,0 +1,499 @@
+@use './variables' as *;
+@use './mixin' as *;
+
+:root {
+  // 한국어 우선 폰트 스택 (한글 + 영문 혼합 사용 시)
+  --font-family-primary: 'SamsungOne', 'SamsungOneKorean', -apple-system, BlinkMacSystemFont, 
+                        'Segoe UI', 'Malgun Gothic', '맑은 고딕', sans-serif;
+  
+  // 영문 전용
+  --font-family-en: 'SamsungOne', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  
+  // 한글 전용
+  --font-family-ko: 'SamsungOneKorean', 'Malgun Gothic', '맑은 고딕', sans-serif;
+
+  // main- pretendard
+  --font-family-pretendard: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', '맑은 고딕', sans-serif;
+
+  // main- futura
+  --font-family-futura: 'Futura', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', '맑은 고딕', sans-serif;
+
+  // Font weights
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  //컬러 공통 - 기본,라이트모드
+  --color-wafer-blue1: #3392D3;
+  --color-wafer-blue2: #0077C8;
+  --color-wafer-blue3: #494C61;
+  --color-dark-blue1: #002946;
+  --color-dark-blue2: #003356;
+
+  --color-black1: #03091D;
+  --color-black: #03091D;
+  --color-gray1: #444444;
+  --color-gray2: #666666;
+  --color-gray3: #999999;
+  --color-gray4: #D9D9D9;
+  --color-gray5: #EFEFF0;
+
+  --color-white: #FFFFFF;
+
+  --color-bg1: #f6f7fb;
+  --color-bg2: #F2F2F2;
+  --color-bg3: #F8F8F8;
+  --color-bg4: #FDF4F4;
+
+  --color-error1: #D62323;
+  --color-error2: #FF4242;
+
+  --color-deem: rgba(3, 9, 29, 0.4);
+
+  --color-blue1: #00B3E2;
+  --color-blue2: #33C2E8;
+  --color-blue3: #99E1F3;
+
+  --color-yellow: #fec04a;
+
+  // // 컬러 공통 - 다크모드
+// [data-theme="dark"]{
+// }
+
+//폰트와 컬러는 루트 변수 쓰고있음
+}
+
+// 컬러 클래스
+.waferblue1{ background-color: var(--color-wafer-blue1) !important; }
+.waferblue2{ background-color: var(--color-wafer-blue2) !important; }
+.waferblue3{ background-color: var(--color-wafer-blue3) !important; }
+.darkblue1{ background-color: var(--color-dark-blue1) !important; }
+.darkblue2{ background-color: var(--color-dark-blue2) !important; }
+.black1{ background-color: var(--color-black1) !important; }
+.black{ background-color: var(--color-black1) !important; }
+.gray1{ background-color: var(--color-gray1) !important; }
+.gray2{ background-color: var(--color-gray2) !important; }
+.gray3{ background-color: var(--color-gray3) !important; }
+.gray4{ background-color: var(--color-gray4) !important; }  
+.gray5{ background-color: var(--color-gray5) !important; }
+.white{ background-color: var(--color-white) !important; }
+.bg1{ background-color: var(--color-bg1) !important; }
+.bg2{ background-color: var(--color-bg2) !important; }
+.bg3{ background-color: var(--color-bg3) !important; }
+.bg4{ background-color: var(--color-bg4) !important; }
+.error1{ background-color: var(--color-error1) !important; }
+.error2{ background-color: var(--color-error2) !important; }
+.deem-opacity40{ background-color: var(--color-deem) !important; }
+.blue1{ background-color: var(--color-blue1) !important; }
+.blue2{ background-color: var(--color-blue2) !important; }
+.blue3{ background-color: var(--color-blue3) !important; }
+.yellow{ background-color: var(--color-yellow) !important; }
+.transparent{ background-color: transparent !important; }
+
+// 유틸리티 클래스
+.font-extralight { font-weight: var(--font-weight-extralight); }
+.font-light { font-weight: var(--font-weight-light); }
+.font-regular { font-weight: var(--font-weight-regular); }
+.font-medium { font-weight: var(--font-weight-medium); }
+.font-semibold { font-weight: var(--font-weight-semibold); }
+.font-bold { font-weight: var(--font-weight-bold); }
+.font-extrabold { font-weight: var(--font-weight-extrabold); }
+
+// Condensed 스타일
+.font-condensed { font-stretch: condensed; }
+
+/* Font */
+.f_pr{ font-family: var(--font-family-pretendard) !important; }
+.f_f{ font-family: var(--font-family-futura) !important; }
+
+/* blind */
+.blind { position: absolute; font-size: 0; text-indent: -9999px; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+.css-container{ position: fixed; top: 0; left: 0; width: 0; height: 100vh; pointer-events: none; visibility: hidden; }
+
+
+/* font common*/
+// en - futura
+.h1_en{
+  font-family: var(--font-family-futura) !important;
+  font-weight: 700 !important;
+  font-size: vw(w, 500) !important;
+  line-height: 110% !important;
+  letter-spacing: vw(w, 80) !important;
+}
+.h2_en{
+  font-family: var(--font-family-futura) !important;
+  font-weight: 700 !important;
+  font-size: vw(w, 160) !important;
+  line-height: 100% !important;
+  letter-spacing: vw(w, 19.2) !important;
+}
+.h3_en{
+  font-family: var(--font-family-futura) !important;
+  font-weight: 700 !important;
+  font-size: vw(w, 80) !important;
+  line-height: 110% !important;
+}
+.h4_en{
+  font-family: var(--font-family-futura) !important;
+  font-weight: 700 !important;
+  font-size: vw(w, 56) !important;
+  line-height: 110% !important;
+}
+.h5_en{
+  font-family: var(--font-family-futura) !important;
+  font-size: vw(w, 40) !important;
+  font-weight: 700 !important;
+  line-height: 110% !important;
+}
+.h6_en{
+  font-family: var(--font-family-futura) !important;
+  font-size: vw(w, 32) !important;
+  font-weight: 700 !important;
+  line-height: 120% !important;
+}
+.h7_en{
+  font-family: var(--font-family-futura) !important;
+  font-size: vw(w, 24) !important;
+  font-weight: 700 !important;
+  line-height: 110% !important;
+}
+.h8_en{
+  font-family: var(--font-family-futura) !important;
+  font-size: vw(w, 16) !important;
+  font-weight: 450 !important;
+  line-height: 140% !important;
+  letter-spacing: -0.16px !important;
+}
+
+.b1_en{
+  font-family: var(--font-family-futura) !important;
+  font-weight: 400 !important;
+  font-size: vw(w, 20) !important;
+  line-height: 180% !important;
+}
+.b2_en{
+  font-family: var(--font-family-futura) !important;
+  font-weight: 400 !important;
+  font-size: vw(w, 18) !important;
+  line-height: 160% !important;
+}
+
+//en - samsungone
+.h4_en_s{
+  font-family: var(--font-family-en) !important;
+  font-weight: 700 !important;
+  font-size: 56px !important;
+  line-height: 110% !important;
+}
+.h5_en_s{
+  font-family: var(--font-family-en) !important;
+  font-size: 40px !important;
+  font-weight: 700 !important;
+  line-height: 110% !important;
+}
+.h6_en_s{
+  font-family: var(--font-family-en) !important;
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  line-height: 120% !important;
+}
+.h7_en_s{
+  font-family: var(--font-family-en) !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  line-height: 110% !important;
+}
+.h8_en_s{
+  font-family: var(--font-family-en) !important;
+  font-size: 16px !important;
+  font-weight: 450 !important;
+  line-height: 140% !important;
+  letter-spacing: -0.16px !important;
+}
+
+.b1_en_s{
+  font-family: var(--font-family-en) !important;
+  font-weight: 400 !important;
+  font-size: 20px !important;
+  line-height: 180% !important;
+}
+.b2_en_s{
+  font-family: var(--font-family-en) !important;
+  font-weight: 400 !important;
+  font-size: 18px !important;
+  line-height: 160% !important;
+}
+
+//korean - pretendard
+.h4_ko{
+  font-family: var(--font-family-pretendard) !important;
+  font-weight: 700 !important;
+  font-weight: vw(w, 56) !important;
+  line-height: 120% !important;
+}
+
+.h5_ko{
+  font-family: var(--font-family-pretendard) !important;
+  font-size: vw(w, 40) !important;
+  font-weight: 700 !important;
+  line-height: 120% !important;
+}
+
+.h6_ko{
+  font-family: var(--font-family-pretendard) !important;
+  font-weight: 700 !important;
+  font-size: vw(w, 32) !important;
+  line-height: 120% !important;
+}
+
+.h7_ko{
+  font-family: var(--font-family-pretendard) !important;
+  font-weight: 600 !important;
+  font-size: vw(w, 24) !important;
+  line-height: 120% !important;
+}
+
+.h8_ko{
+  font-family: var(--font-family-pretendard) !important;
+  font-weight: 600 !important;
+  font-size: vw(w, 20) !important;
+  line-height: 120% !important;
+}
+
+.b1_ko{
+  font-family: var(--font-family-pretendard) !important;
+  font-weight: 400 !important;
+  font-size: vw(w, 18) !important;
+  line-height: 160% !important;
+}
+.b2_ko{
+  font-family: var(--font-family-pretendard) !important;
+  font-weight: 400 !important;
+  font-size: vw(w, 16) !important;
+  line-height: 160% !important;
+}
+.b3_ko{
+  font-family: var(--font-family-pretendard) !important;
+  font-weight: 400 !important;
+  font-size: vw(w, 14) !important;
+  line-height: 140% !important;
+}
+.b5_ko{
+  font-family: var(--font-family-pretendard) !important;
+  font-weight: 400 !important;
+  font-size: vw(w, 12) !important;
+  line-height: 140% !important;
+  letter-spacing: calc(vw(w, 1.2) * -1) !important;
+}
+
+//korean - samsungonekorean
+.h4_ko_s{
+  font-family: var(--font-family-ko) !important;
+  font-weight: 700 !important;
+  font-weight: 56px !important;
+  line-height: 120% !important;
+}
+
+.h5_ko_s{
+  font-family: var(--font-family-ko) !important;
+  font-size: 40px !important;
+  font-weight: 700 !important;
+  line-height: 120% !important;
+}
+
+.h6_ko_s{
+  font-family: var(--font-family-ko) !important;
+  font-weight: 700 !important;
+  font-size: 32px !important;
+  line-height: 120% !important;
+}
+
+.h7_ko_s{
+  font-family: var(--font-family-ko) !important;
+  font-weight: 700 !important;
+  font-size: 24px !important;
+  line-height: 120% !important;
+}
+
+.h8_ko_s{
+  font-family: var(--font-family-ko) !important;
+  font-weight: 700 !important;
+  font-size: 20px !important;
+  line-height: 120% !important;
+}
+
+.b1_ko_s{
+  font-family: var(--font-family-ko) !important;
+  font-weight: 400 !important;
+  font-size: 18px !important;
+  line-height: 160% !important;
+}
+.b2_ko_s{
+  font-family: var(--font-family-ko) !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 160% !important;
+}
+.b3_ko_s{
+  font-family: var(--font-family-ko) !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 140% !important;
+}
+.b4_ko_s{
+  font-family: var(--font-family-ko) !important;
+  font-weight: 400 !important;
+  font-size: 13px !important;
+  line-height: 140% !important;
+}
+.b5_ko_s{
+  font-family: var(--font-family-ko) !important;
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  line-height: 140% !important;
+  letter-spacing: calc(vw(w, 1.2) * -1) !important;
+}
+
+
+@mixin pc {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+
+@mixin mo {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+.pc-only {
+  @include tablet { display: none !important; }
+  @include mo { display: none !important; }
+}
+
+.tablet-only {
+  @include pc { display: none !important; }
+  @include mo { display: none !important; }
+}
+
+.pc-tablet-only {
+  @include mo { display: none !important; }
+}
+
+.mo-only {
+  @include pc { display: none !important; }
+  @include tablet { display: none !important; }
+}
+
+/* not-mobile */
+// size media query
+@include mobile-small {
+  .not-mobile { display: none; }
+}
+@include mobile {
+  .not-mobile { display: none; }
+}
+@include not-mobile {
+  .not-mobile { display: block; }
+}
+
+
+// 키프레임
+@keyframes leftRight {
+  0% {
+    transform: translateX(-15%) translateZ(0);
+  }
+  100% {
+    transform: translateX(0) translateZ(0);
+  }
+}
+@keyframes scrollFlow { 
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+@keyframes marqueeUp {
+	0%   { transform: translateY(-50%); }
+	100% { transform: translateY(50%); }
+}
+@keyframes marqueeDown {
+	0%   { transform: translateY(50%); }
+	100% { transform: translateY(-50%); }
+}
+
+//스크롤바 커스텀
+// ::-webkit-scrollbar{
+//   width: 6px !important;
+// }
+
+// ::-webkit-scrollbar-thumb{
+//   background: #d9d9d9 !important;
+//   border-radius: 8px !important;
+// }
+
+// ::-webkit-scrollbar-thumb{
+//   background-color: transparent;
+// }
+
+// * {
+//   scrollbar-width: thin;
+//   scrollbar-color: #d9d9d9 #f5f5f5;
+// }
+
+.deem-overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-deem);
+  opacity: 0;
+  &[data-key="gnb"]{
+    z-index: 99;
+  }
+  &[data-key="filter"]{
+    z-index: 40;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+
+// 스크롤바 가리기
+html, body {
+  scrollbar-width: none;      /* Firefox */
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none;              /* Chrome, Safari, Opera */
+}

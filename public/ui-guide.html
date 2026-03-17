@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flops UI Guide</title>
+  <style>
+    body {
+      font-family: 'Pretendard', sans-serif;
+      padding: 30px;
+      line-height: 1.5;
+      background: #f8f9fb;
+      color: #222;
+      font-size: 14px;
+      padding-top: 74px;
+    }
+    .guide-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      /* background: rgba(255,255,255,0.97); */
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      /* border-bottom: 1px solid #e0e0e0; */
+      padding: 0 32px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      overflow-x: auto;
+    }
+    .guide-nav a {
+      /* color: #1976d2; */
+      color: #000;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      padding: 7px 14px;
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+      margin-right: 2px;
+      /* border: 1px solid #f2f2f2; */
+      background: #f9f9f9;
+      flex-shrink: 0;
+    }
+    .guide-nav a:hover, .guide-nav a.active {
+      background: #e3f2fd;
+      color: #0d47a1;
+    }
+    .guide-nav::-webkit-scrollbar { display: none; }
+    .component-guide {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      margin-bottom: 36px;
+      padding: 32px 28px 24px 28px;
+      border: 1px solid #ececec;
+    }
+    .component-guide h1 {
+      font-size: 20px;
+      color: #222;
+      margin-top: 0;
+      margin-bottom: 18px;
+      border-left: 4px solid #4caf50;
+      padding-left: 12px;
+      background: linear-gradient(90deg, #e8f5e9 0 60%, transparent 100%);
+      scroll-margin-top: 70px;
+    }
+    .component-guide h2, .component-guide h3 {
+      margin-top: 2em;
+      color: #111;
+      font-size: 16px;
+      border-left: 3px solid #b2dfdb;
+      padding-left: 10px;
+      background: #f8f8f8;
+    }
+    .component-guide ul {
+      margin: 8px 0 24px 20px;
+      padding: 0;
+    }
+    .component-guide li {
+      margin: 4px 0;
+    }
+    .component-guide pre, .component-guide code {
+      background: #f8f8f8;
+      border: 1px solid #ddd;
+      font-size: 13px;
+      line-height: 1.4;
+      overflow-x: auto;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .component-guide .inline-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 12px;
+    }
+    .component-guide .inline-box > div {
+      flex: 1 1 300px;
+    }
+    .component-guide img {
+      max-width: 100%;
+      border: 1px solid #ccc;
+      margin: 12px 0;
+      border-radius: 6px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    }
+    .component-guide ul li code {
+      background: #f0f0f0;
+      border: none;
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: #1976d2;
+    }
+    .component-guide ul li strong {
+      color: #388e3c;
+    }
+    h1, h2, h3 {
+      margin-top: 2em;
+      color: #111;
+      font-size: 18px;
+      border-left: 4px solid #4caf50;
+      padding-left: 10px;
+    }
+    h1{
+      border-left: 4px solid red;
+    }
+    pre, code {
+      background: #f8f8f8;
+      /* padding: 12px 16px; */
+      border: 1px solid #ddd;
+      font-size: 13px;
+      line-height: 1.4;
+      overflow-x: auto;
+      border-radius: 4px;
+    }
+    img {
+      max-width: 100%;
+      border: 1px solid #ccc;
+      margin: 12px 0;
+    }
+    ul {
+      margin: 8px 0 24px 20px;
+      padding: 0;
+    }
+    li {
+      margin: 4px 0;
+    }
+    .inline-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .inline-box > div {
+      flex: 1 1 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="guide-nav">
+    <a href="#color-guide">컬러</a>
+    <a href="#font-guide">폰트</a>
+    <a href="#button-guide">Button</a>
+    <a href="#textinput-guide">TextInput</a>
+    <a href="#textarea-guide">Textarea</a>
+    <a href="#radio-guide">Radio</a>
+    <a href="#checkbox-guide">Checkbox</a>
+    <a href="#dropdown-guide">Dropdown</a>
+    <a href="#datepicker-guide">Datepicker</a>
+    <a href="#datatable-guide">DataTable</a>
+    <a href="#pagination-guide">Pagination</a>
+    <a href="#tooltip-popover-guide">TooltipPopover</a>
+    <a href="#quickmenu-guide">QuickMenu</a>
+    <a href="#breadcrumb-guide">Breadcrumb</a>
+    <a href="#tutorial-guide">Popup(Tutorial)</a>
+    <a href="#popup-guide">Popup(Alert)</a>
+    <a href="#popup2-guide">Popup2</a>
+    <a href="#filter-guide">Filter</a>
+    <a href="#gnb-guide">GNB</a>
+  </nav>
+
+  <div class="component-guide">
+    <h1 id="color-guide">컬러 가이드</h1>
+    <div class="inline-box">
+      <div>
+        <p>아래는 주요 컬러 변수와 예시입니다. (SCSS 변수: <code>_common.scss</code> 참고)</p>
+        <ul>
+          <li><span style="display:inline-block;width:16px;height:16px;background:#3392D3;border:1px solid #ccc;vertical-align:middle;"></span> <code>--color-wafer-blue1</code>: #3392D3 (Primary Blue)</li>
+          <li><span style="display:inline-block;width:16px;height:16px;background:#0077C8;border:1px solid #ccc;vertical-align:middle;"></span> <code>--color-wafer-blue2</code>: #0077C8</li>
+          <li><span style="display:inline-block;width:16px;height:16px;background:#03091D;border:1px solid #ccc;vertical-align:middle;"></span> <code>--color-black</code>: #03091D</li>
+          <li><span style="display:inline-block;width:16px;height:16px;background:#444;border:1px solid #ccc;vertical-align:middle;"></span> <code>--color-gray1</code>: #444444</li>
+          <li><span style="display:inline-block;width:16px;height:16px;background:#666;border:1px solid #ccc;vertical-align:middle;"></span> <code>--color-gray2</code>: #666666</li>
+          <li><span style="display:inline-block;width:16px;height:16px;background:#999;border:1px solid #ccc;vertical-align:middle;"></span> <code>--color-gray3</code>: #999999</li>
+          <li><span style="display:inline-block;width:16px;height:16px;background:#D9D9D9;border:1px solid #ccc;vertical-align:middle;"></span> <code>--color-gray4</code>: #D9D9D9</li>
+          <li><span style="display:inline-block;width:16px;height:16px;background:#EFEFF0;border:1px solid #ccc;vertical-align:middle;"></span> <code>--color-gray5</code>: #EFEFF0</li>
+          <li><span style="display:inline-block;width:16px;height:16px;background:#F6F7FB;border:1px solid #ccc;vertical-align:middle;"></span> <code>--color-bg1</code>: #F6F7FB</li>
+          <li><span style="display:inline-block;width:16px;height:16px;background:#F2F2F2;border:1px solid #ccc;vertical-align:middle;"></span> <code>--color-bg2</code>: #F2F2F2</li>
+          <li><span style="display:inline-block;width:16px;height:16px;background:#D62323;border:1px solid #ccc;vertical-align:middle;"></span> <code>--color-error1</code>: #D62323 (Error)</li>
+          <li><span style="display:inline-block;width:16px;height:16px;background:#FF4242;border:1px solid #ccc;vertical-align:middle;"></span> <code>--color-error2</code>: #FF4242</li>
+          <li><span style="display:inline-block;width:16px;height:16px;background:#FFFFFF;border:1px solid #ccc;vertical-align:middle;"></span> <code>--color-white</code>: #FFFFFF</li>
+        </ul>
+        <p>컬러 유틸리티 클래스 예시: <code>.waferblue1</code>, <code>.gray3</code>, <code>.bg1</code>, <code>.error1</code> 등</p>
+        <p>사용 예시: <code>&lt;div class="waferblue1"&gt;Blue BG&lt;/div&gt;</code></p>
+      </div>
+    </div>
+    <ul>
+      <li>컴포넌트는 scoped style로 작성됨</li>
+    </ul>
+  </div>
+
+  <div class="component-guide">
+    <h1 id="font-guide">폰트 가이드</h1>
+    <div class="inline-box">
+      <div>
+        <p>아래는 주요 폰트 패밀리, 웨이트, 텍스트 스타일 클래스 예시입니다. (SCSS 변수: <code>_common.scss</code> 참고)</p>
+        <ul>
+          <li><code>--font-family-primary</code>: 'SamsungOne', 'SamsungOneKorean', ...</li>
+          <li><code>--font-family-pretendard</code>: 'Pretendard', ...</li>
+          <li><code>--font-family-futura</code>: 'Futura', ...</li>
+          <li><code>--font-family-en</code>: 영문 전용</li>
+          <li><code>--font-family-ko</code>: 한글 전용</li>
+        </ul>
+        <ul>
+          <li><code>--font-weight-extralight</code>: 200</li>
+          <li><code>--font-weight-light</code>: 300</li>
+          <li><code>--font-weight-regular</code>: 400</li>
+          <li><code>--font-weight-medium</code>: 500</li>
+          <li><code>--font-weight-semibold</code>: 600</li>
+          <li><code>--font-weight-bold</code>: 700</li>
+          <li><code>--font-weight-extrabold</code>: 800</li>
+        </ul>
+        <p>텍스트 스타일 클래스 예시:</p>
+        <ul>
+          <li><code>.h4_ko</code>, <code>.h5_ko</code>, <code>.b3_ko</code>, <code>.b5_ko</code> (Pretendard, 한글)</li>
+          <li><code>.h4_en</code>, <code>.b1_en</code> (Futura, 영문)</li>
+          <li><code>.h4_ko_s</code>, <code>.b3_ko_s</code> (SamsungOneKorean, 한글)</li>
+        </ul>
+        <p>유틸리티 클래스 예시: <code>.font-bold</code>, <code>.font-regular</code>, <code>.f_pr</code> (Pretendard), <code>.f_f</code> (Futura)</p>
+        <p>사용 예시: <code>&lt;span class="h4_ko font-bold"&gt;헤드라인&lt;/span&gt;</code></p>
+      </div>
+    </div>
+    <ul>
+      <li>컴포넌트는 scoped style로 작성됨</li>
+    </ul>
+  </div>
+
+  <div class="component-guide">
+    <h1 id="button-guide">Button 컴포넌트 가이드 (Vue 3 + TypeScript)</h1>
+    <div class="inline-box">
+      <div>
+        <p>아래 이미지는 버튼의 주요 상태/스타일(기본, 비활성화, 서치, 링크, 텍스트온리, 라운드, 탭, 컬러, 언더라인 등)을 보여줍니다.</p>
+        <img src="./guide/button-states.png" alt="버튼 상태별 예시" />
+        <img src="./guide/button-states2.png" alt="버튼 상태별 예시" />
+        <ul>
+          <li><strong>기본</strong>: 배경색, 폰트색 지정</li>
+          <li><strong>비활성화</strong>: disabled prop</li>
+          <li><strong>서치</strong>: search prop</li>
+          <li><strong>링크</strong>: link prop</li>
+          <li><strong>텍스트온리</strong>: onlyText14, onlyText16, onlyTextClose14, onlyTextClose16 prop</li>
+          <li><strong>라운드</strong>: round prop</li>
+          <li><strong>탭</strong>: rectangular, tab-round prop</li>
+          <li><strong>컬러</strong>: backgroundColor, fontColor, lineColor 등</li>
+          <li><strong>언더라인</strong>: underlineColor prop</li>
+          <li><strong>호버</strong>: hoverColor, hoverFontColor, hoverLineColor, hoverAction 등</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>컴포넌트 사용 예시 (Vue Template)</h3>
+    <pre><code>&lt;Button
+      text="확인"
+      :size="'40'"
+      :background-color="'waferblue1'"
+      :font-color="'white'"
+      :disabled="false"
+      :search="false"
+      :link="false"
+      :only-text-14="false"
+      :round="false"
+      :hover-action="true"
+    /&gt;</code></pre>
+
+    <h3>렌더링 결과 HTML 구조 예시</h3>
+    <pre><code>&lt;button class="btn btn--40 waferblue1"&gt;
+      &lt;span class="button-text"&gt;확인&lt;/span&gt;
+    &lt;/button&gt;</code></pre>
+    <ul>
+      <li><code>.btn</code>: 기본 버튼 클래스</li>
+      <li><code>.btn--40</code>, <code>.btn--32</code> 등: 사이즈별 클래스</li>
+      <li><code>.waferblue1</code>, <code>.gray2</code> 등: 배경색 클래스</li>
+      <li><code>.btn--disabled</code>: 비활성화</li>
+      <li><code>.btn--search</code>: 서치 아이콘</li>
+      <li><code>.btn--link</code>: 링크 스타일</li>
+      <li><code>.btn--only-text-14</code>, <code>.btn--only-text-16</code>, <code>.btn--only-text-close-14</code>, <code>.btn--only-text-close-16</code>: 텍스트온리</li>
+      <li><code>.btn--round</code>: 라운드</li>
+      <li><code>.btn--rectangular</code>: 탭/네모</li>
+      <li><code>.btn--underline</code>: 언더라인 스타일</li>
+      <li><code>.btn--hover-color</code>, <code>.btn--hover-font-color</code>, <code>.btn--hover-line-color</code>, <code>.btn--hover-action</code>: 호버 효과</li>
+      <li><code>.button-text</code>: 텍스트 영역</li>
+      <li><code>.icon-search</code>, <code>.icon-arrow-right</code>, <code>.icon-close</code>: 아이콘</li>
+    </ul>
+
+    <h3>스타일 기준 요약</h3>
+    <ul>
+      <li>버튼 높이: <code>24~48px</code> (size prop)</li>
+      <li>버튼 border-radius: <code>4px</code> (round: 100px)</li>
+      <li>배경색/폰트색: <code>backgroundColor</code>, <code>fontColor</code> prop</li>
+      <li>언더라인: <code>border-bottom: 1px solid var(--underline-color, var(--color-gray3))</code> (underlineColor prop)</li>
+      <li>비활성화: <code>background: var(--color-gray4)</code>, <code>color: var(--color-white)</code></li>
+      <li>서치/링크/텍스트온리/라운드/탭 등 다양한 변형 지원</li>
+      <li>호버 효과: <code>hoverColor</code>, <code>hoverFontColor</code>, <code>hoverLineColor</code>, <code>hoverAction</code></li>
+    </ul>
+
+    <h3>참고</h3>
+    <ul>
+      <li>props로 다양한 스타일/상태 지원</li>
+      <li>컴포넌트는 scoped style로 작성됨</li>
+      <li>아이콘은 <code>/icon</code> 경로의 SVG 파일 사용</li>
+    </ul>
+  </div>
+
+  <div class="component-guide">
+    <h1 id="textinput-guide">TextInput 컴포넌트 가이드 (Vue 3 + TypeScript)</h1>
+    <div class="inline-box">
+      <div>
+        <p>아래 이미지는 텍스트 인풋의 주요 상태(기본, 포커스, 입력됨, 완료, 비활성화, 에러, 읽기전용, 콤보, 검색)를 보여줍니다.</p>
+        <img src="./guide/textinput-states.png" alt="텍스트 인풋 상태별 예시" />
+        <ul>
+          <li><strong>기본</strong>: 입력 전 상태</li>
+          <li><strong>포커스</strong>: 입력창에 포커스된 상태</li>
+          <li><strong>입력됨</strong>: 값이 입력된 상태</li>
+          <li><strong>완료</strong>: completed 상태</li>
+          <li><strong>비활성화</strong>: disabled 상태</li>
+          <li><strong>에러</strong>: error 상태</li>
+          <li><strong>읽기전용</strong>: readonly 상태</li>
+          <li><strong>콤보</strong>: combo 아이템이 있을 때</li>
+          <li><strong>검색</strong>: search prop이 true일 때</li>
+        </ul>
+      </div>
+    </div>
+
+  <h3>컴포넌트 사용 예시 (Vue Template)</h3>
+  <pre><code>&lt;TextInput
+  v-model="inputValue"
+  :placeholder="'이름을 입력하세요'"
+  :count="20"
+  :error="errorMessage"
+  :readonly="false"
+  :disabled="false"
+  :combo="comboList"
+  :search="true"
+/&gt;</code></pre>
+
+  <h3>렌더링 결과 HTML 구조 예시</h3>
+  <pre><code>&lt;div class="text-input pressed has-count"&gt;
+    &lt;div class="input-wrapper"&gt;
+      &lt;input type="text" class="" placeholder="이름을 입력하세요" value="홍길동"&gt;
+      &lt;button class="clear-btn" type="button"&gt;
+        &lt;span aria-hidden="true"&gt;
+          &lt;img src="/portal-ui/icon/icon-clear.svg" alt="close"&gt;
+        &lt;/span&gt;
+      &lt;/button&gt;
+      &lt;div class="icon-search"&gt;
+        &lt;img src="/portal-ui/icon/icon-input-search.svg" alt="search"&gt;
+      &lt;/div&gt;
+      &lt;div class="combo-list"&gt;
+        &lt;span class="combo-item"&gt;태그1 &lt;span class="combo-remove"&gt;✕&lt;/span&gt;&lt;/span&gt;
+        &lt;span class="combo-item"&gt;태그2 &lt;span class="combo-remove"&gt;✕&lt;/span&gt;&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="messages"&gt;
+      &lt;div class="subtext"&gt;서브텍스트 예시&lt;/div&gt;
+      &lt;div class="count"&gt;
+        &lt;span class="count-text"&gt;3&lt;/span&gt;/&lt;span class="count-text"&gt;20&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+  <ul>
+    <li><code>.text-input</code>: 전체 wrapper</li>
+    <li><code>.input-wrapper</code>: 인풋 컨테이너</li>
+    <li><code>input</code>: 실제 입력창</li>
+    <li><code>.clear-btn</code>: 입력값 삭제 버튼</li>
+    <li><code>.icon-search</code>: 검색 아이콘</li>
+    <li><code>.combo-list</code>: 콤보 아이템 리스트</li>
+    <li><code>.combo-item</code>: 콤보 아이템</li>
+    <li><code>.combo-remove</code>: 콤보 아이템 삭제</li>
+    <li><code>.error-msg</code>: 에러 메시지</li>
+    <li><code>.messages</code>: 하단 메시지 영역</li>
+    <li><code>.subtext</code>: 서브텍스트</li>
+    <li><code>.count</code>: 글자수 표시</li>
+    <li><code>.count-text</code>: 글자수 텍스트</li>
+    <li>상태별 클래스: <code>pressed</code>, <code>focus</code>, <code>completed</code>, <code>is-disabled</code>, <code>readonly</code>, <code>error</code>, <code>is-search</code>, <code>has-count</code>, <code>has-error</code>, <code>has-subtext</code>, <code>is-combo</code></li>
+  </ul>
+
+  <h3>스타일 기준 요약</h3>
+  <ul>
+    <li>입력창 크기: <code>width: 320px; height: 32px;</code></li>
+    <li>입력창 패딩: <code>0 16px</code></li>
+    <li>입력창 border-radius: <code>4px</code></li>
+    <li>입력창 기본 border: <code>1px solid var(--color-gray4)</code></li>
+    <li>포커스/입력됨: <code>border-color: #03091D</code></li>
+    <li>완료: <code>border-color: var(--color-gray4)</code></li>
+    <li>비활성화: <code>color: var(--color-gray4)</code></li>
+    <li>읽기전용: <code>color: var(--color-gray2)</code></li>
+    <li>에러: <code>border-color: var(--color-error1)</code></li>
+    <li>placeholder 색상: <code>#666</code> (포커스/호버 시 <code>#03091D</code>)</li>
+    <li>콤보 아이템: <code>.combo-list</code> 하위에 표시</li>
+    <li>검색 아이콘: <code>.icon-search</code>로 우측에 표시</li>
+    <li>입력값 삭제 버튼: <code>.clear-btn</code>로 우측에 표시</li>
+    <li>글자수: <code>.count</code>로 우측 하단 표시</li>
+    <li>에러 메시지: <code>.error-msg</code>로 하단 표시</li>
+  </ul>
+
+  <h3>참고</h3>
+  <ul>
+    <li>글자수 제한이 있을 경우 <code>count</code> prop으로 지정</li>
+    <li>에러 메시지는 <code>error</code> prop으로 표시</li>
+    <li>완료/비활성/읽기전용 상태에서는 입력 불가</li>
+    <li>콤보/검색 등 다양한 상태 지원</li>
+    <li>컴포넌트는 scoped style로 작성됨</li>
+  </ul>
+
+</div>
+
+
+  <div class="component-guide">
+    <h1 id="textarea-guide">Textarea 컴포넌트 가이드 (Vue 3 + TypeScript)</h1>
+    <div class="inline-box">
+      <div>
+        <p>아래 이미지는 텍스트에어리어의 주요 상태(기본, 포커스, 입력됨, 완료, 비활성화, 에러, 읽기전용)를 보여줍니다.</p>
+        <img src="./guide/textarea-states.png" alt="텍스트에어리어 상태별 예시" />
+        <ul>
+          <li><strong>기본</strong>: 입력 전 상태</li>
+          <li><strong>포커스</strong>: 입력창에 포커스된 상태</li>
+          <li><strong>입력됨</strong>: 값이 입력된 상태</li>
+          <li><strong>완료</strong>: completed 상태</li>
+          <li><strong>비활성화</strong>: disabled 상태</li>
+          <li><strong>에러</strong>: error 상태</li>
+          <li><strong>읽기전용</strong>: readOnly 상태</li>
+        </ul>
+      </div>
+    </div>
+
+  <h3>컴포넌트 사용 예시 (Vue Template)</h3>
+  <pre><code>&lt;Textarea
+  v-model="textValue"
+  :placeholder="'내용을 입력하세요'"
+  :max-length="200"
+  :disabled="false"
+  :read-only="false"
+  :completed="false"
+  :error="false"
+  error-message="에러 메시지 예시"
+/&gt;</code></pre>
+
+  <h3>렌더링 결과 HTML 구조 예시</h3>
+  <pre><code>&lt;div class="textarea-wrapper"&gt;
+    &lt;div class="textarea-container textarea-container--focus"&gt;
+      &lt;textarea class="textarea-input b4_ko_s"&gt;&lt;/textarea&gt;
+      &lt;div class="textarea-bottom"&gt;
+        &lt;div class="error-message b5_ko_s"&gt;에러 메시지 예시&lt;/div&gt;
+        &lt;div class="character-count b5_ko_s"&gt;
+          &lt;span class="character-count-number"&gt;12&lt;/span&gt;/200
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+  <ul>
+    <li><code>.textarea-wrapper</code>: 전체 wrapper</li>
+    <li><code>.textarea-container</code>: 텍스트에어리어 컨테이너</li>
+    <li><code>.textarea-container--focus</code>: 포커스 상태</li>
+    <li><code>.textarea-container--pressed</code>: 입력값이 있을 때</li>
+    <li><code>.textarea-container--completed</code>: 완료 상태</li>
+    <li><code>.textarea-container--hover</code>: 마우스 오버 상태</li>
+    <li><code>.textarea-container--disabled</code>: 비활성화 상태</li>
+    <li><code>.textarea-container--error</code>: 에러 상태</li>
+    <li><code>.textarea-container--readonly</code>: 읽기전용 상태</li>
+    <li><code>.textarea-input</code>: textarea 입력창</li>
+    <li><code>.textarea-bottom</code>: 하단 영역(에러 메시지, 글자수)</li>
+    <li><code>.error-message</code>: 에러 메시지</li>
+    <li><code>.character-count</code>: 글자수 표시</li>
+    <li><code>.character-count-number</code>: 현재 글자수</li>
+  </ul>
+
+  <h3>스타일 기준 요약</h3>
+  <ul>
+    <li>입력창 패딩: <code>14px 18px</code></li>
+    <li>글자수 표시 위치: 우측 하단</li>
+    <li>에러 메시지 위치: 좌측 하단</li>
+    <li>입력창 border-radius: <code>4px</code></li>
+    <li>입력창 기본 border: <code>1px solid var(--color-gray4)</code></li>
+    <li>포커스/입력됨: <code>border-color: var(--color-black)</code></li>
+    <li>완료: <code>border-color: var(--color-gray4)</code></li>
+    <li>비활성화: <code>border-color: var(--color-gray4)</code>, <code>color: var(--color-gray3)</code></li>
+    <li>에러: <code>border-color: var(--color-error1)</code>, 글자수/에러 메시지 <code>color: var(--color-error1)</code></li>
+    <li>읽기전용: <code>border-color: var(--color-gray3)</code>, <code>color: var(--color-gray2)</code></li>
+    <li>placeholder 색상: <code>var(--color-gray3)</code> (포커스/호버 시 <code>var(--color-black)</code>)</li>
+  </ul>
+
+  <h3>참고</h3>
+  <ul>
+    <li>글자수 제한이 있을 경우 <code>maxLength</code>로 지정</li>
+    <li>에러 메시지는 <code>error</code>와 <code>errorMessage</code> 조합으로 표시</li>
+    <li>완료/비활성/읽기전용 상태에서는 입력 불가</li>
+    <li>컴포넌트는 scoped style로 작성됨</li>
+  </ul>
+</div>
+
+  <div class="component-guide">
+    <h1 id="radio-guide">Radio Button 컴포넌트 가이드 (Vue 3 + TypeScript)</h1>
+
+  <div class="inline-box">
+    <div>
+      <p>아래 이미지는 라디오 버튼의 네 가지 상태를 보여줍니다.</p>
+        <img src="./guide/radio-states.png" alt="라디오 버튼 상태별 예시" />
+    </div>
+    <div>
+      <ul>
+        <li><strong>Normal Disabled</strong>: 비활성화 상태 (선택 안 됨)</li>
+        <li><strong>Selected Disabled</strong>: 비활성화 상태 (선택됨)</li>
+        <li><strong>Unchecked</strong>: 기본 선택되지 않은 상태</li>
+        <li><strong>Checked</strong>: 선택된 상태</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2> 컴포넌트 사용 예시 (Vue Template)</h2>
+  <pre><code>&lt;Radio
+  v-model="selectedOption"
+  :value="'option1'"
+  label="옵션 1"
+  name="exampleRadio"
+/&gt;</code></pre>
+
+  <h2> 렌더링 결과 HTML 구조 예시</h2>
+  <pre><code>&lt;label class="radio checked"&gt;
+  &lt;input type="radio" name="exampleRadio" value="option1" checked /&gt;
+  &lt;span class="radio-icon"&gt;&lt;/span&gt;
+  &lt;span class="radio-label b3_ko_s"&gt;옵션 1&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+  <ul>
+    <li><code>.radio</code>: 기본 wrapper</li>
+    <li><code>.checked</code>: 선택된 상태</li>
+    <li><code>.disabled</code>: 비활성화 상태일 경우 추가됨</li>
+    <li><code>.radio-icon</code>: 아이콘 영역 (배경이미지로 상태 구분)</li>
+    <li><code>.radio-label</code>: 텍스트 라벨 영역</li>
+  </ul>
+
+  <h2> 스타일 기준 요약</h2>
+  <ul>
+    <li>아이콘 크기: <code>20px × 20px</code></li>
+    <li>라벨 간 간격: <code>8px</code></li>
+    <li>배경 이미지:
+      <ul>
+        <li>기본: <code>radio-unchecked.svg</code></li>
+        <li>선택됨: <code>radio-checked.svg</code></li>
+        <li>비활성화: <code>radio-unchecked-disabled.svg</code></li>
+        <li>선택+비활성화: <code>radio-checked-disabled.svg</code></li>
+      </ul>
+    </li>
+    <li>선택 상태 시: <code>font-weight: 700</code></li>
+    <li>비활성 라벨 색상: <code>var(--color-gray3)</code></li>
+  </ul>
+
+  <h2> 참고</h2>
+  <p>본 컴포넌트는 scoped style로 작성되어 있으며, 아이콘은 <code>/icon</code> 경로의 SVG 파일을 사용합니다.</p>
+</div>
+
+
+  <div class="component-guide">
+    <h1 id="checkbox-guide">Checkbox 컴포넌트 가이드 (Vue 3 + TypeScript)</h1>
+    <div class="inline-box">
+      <div>
+        <p>아래 이미지는 체크박스의 주요 상태(기본, 체크됨, 비활성화, 체크+비활성화)를 보여줍니다.</p>
+        <img src="./guide/checkbox-states.png" alt="체크박스 상태별 예시" />
+        <ul>
+          <li><strong>기본</strong>: 선택되지 않은 상태</li>
+          <li><strong>체크됨</strong>: 선택된 상태</li>
+          <li><strong>비활성화</strong>: disabled 상태</li>
+          <li><strong>체크+비활성화</strong>: 선택+비활성화 상태</li>
+        </ul>
+      </div>
+    </div>
+
+  <h3>컴포넌트 사용 예시 (Vue Template)</h3>
+  <pre><code>&lt;Checkbox
+  v-model:checked="isChecked"
+  :disabled="false"
+  label="동의합니다."
+/&gt;</code></pre>
+
+  <h3>렌더링 결과 HTML 구조 예시</h3>
+  <pre><code>&lt;label class="checkbox checked"&gt;
+  &lt;input type="checkbox" checked /&gt;
+  &lt;span class="checkbox-icon"&gt;&lt;/span&gt;
+  &lt;span class="checkbox-label"&gt;동의합니다.&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+  <ul>
+    <li><code>.checkbox</code>: 전체 wrapper</li>
+    <li><code>.checked</code>: 체크된 상태</li>
+    <li><code>.disabled</code>: 비활성화 상태</li>
+    <li><code>.checkbox-icon</code>: 체크박스 아이콘</li>
+    <li><code>.checkbox-label</code>: 라벨 텍스트</li>
+  </ul>
+
+  <h3>스타일 기준 요약</h3>
+  <ul>
+    <li>아이콘 크기: <code>20px × 20px</code></li>
+    <li>라벨 간 간격: <code>8px</code></li>
+    <li>기본: <code>border: 1px solid var(--color-gray3)</code>, <code>background: var(--color-white)</code></li>
+    <li>체크됨: <code>background: url('/portal-ui/icon/checkbox-checked.svg')</code></li>
+    <li>비활성화: <code>border: 1px solid var(--color-bg2)</code>, <code>color: var(--color-gray3)</code></li>
+    <li>체크+비활성화: <code>background: url('/portal-ui/icon/checkbox-checked-disabled.svg')</code>, <code>font-weight: 700</code></li>
+  </ul>
+
+  <h3>참고</h3>
+  <ul>
+    <li>비활성/체크+비활성 상태에서는 클릭 불가</li>
+    <li>컴포넌트는 scoped style로 작성됨</li>
+    <li>아이콘은 <code>/icon</code> 경로의 SVG 파일 사용</li>
+  </ul>
+</div>
+
+
+  <div class="component-guide">
+    <h1 id="dropdown-guide">Dropdown 컴포넌트 가이드 (Vue 3 + TypeScript)</h1>
+    <div class="inline-box">
+      <div>
+        <p>아래 이미지는 드롭다운의 주요 상태(기본, 포커스, 입력됨, 완료, 비활성화, 에러, 읽기전용, 다중선택, 라디오스타일, 검색)를 보여줍니다.</p>
+        <img src="./guide/dropdown-states.png" alt="드롭다운 상태별 예시" />
+        <ul>
+          <li><strong>기본</strong>: 아무것도 선택되지 않은 상태</li>
+          <li><strong>포커스</strong>: 드롭다운에 포커스된 상태</li>
+          <li><strong>입력됨</strong>: 값이 선택된 상태(pressed)</li>
+          <li><strong>완료</strong>: completed 상태</li>
+          <li><strong>비활성화</strong>: disabled 상태</li>
+          <li><strong>에러</strong>: error 상태</li>
+          <li><strong>읽기전용</strong>: readonly 상태</li>
+          <li><strong>다중선택</strong>: multiple prop이 true일 때</li>
+          <li><strong>라디오스타일</strong>: radioStyle prop이 true일 때</li>
+          <li><strong>검색</strong>: searchable prop이 true일 때</li>
+        </ul>
+      </div>
+    </div>
+
+  <h3>컴포넌트 사용 예시 (Vue Template)</h3>
+  <pre><code>&lt;CustomDropdown
+  v-model="selectedValue"
+  :options="dropdownOptions"
+  placeholder="옵션을 선택하세요"
+  :multiple="false"
+  :disabled="false"
+  :readonly="false"
+  :variant="'default'"
+  :error-message="errorMessage"
+  :show-clear="true"
+  :searchable="true"
+  search-placeholder="검색어 입력"
+  :show-check-icon="true"
+  :radio-style="false"
+/&gt;</code></pre>
+
+  <h3>렌더링 결과 HTML 구조 예시</h3>
+  <pre><code>&lt;div class="dropdown-wrapper"&gt;
+  &lt;div class="custom-dropdown dropdown-component"&gt;
+    &lt;div class="custom-dropdown-content"&gt;
+      &lt;span class="custom-dropdown-label"&gt;옵션 1&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;button class="clear-button"&gt;&lt;img src="/portal-ui/icon/icon-close-gray.svg" alt="clear"&gt;&lt;/button&gt;
+    &lt;div class="custom-dropdown-icon"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;small class="p-error b5_ko_s"&gt;에러 메시지 예시&lt;/small&gt;
+&lt;/div&gt;
+&lt;!-- 오버레이는 body에 Teleport되어 렌더링 --&gt;
+&lt;div class="dropdown-overlay"&gt;
+  &lt;div class="search-header"&gt;
+    &lt;input class="search-input" placeholder="검색어 입력" /&gt;
+  &lt;/div&gt;
+  &lt;div class="options-container"&gt;
+    &lt;div class="dropdown-option"&gt;
+      &lt;span class="option-check"&gt;&lt;span class="radio-icon"&gt;&lt;/span&gt;&lt;/span&gt;
+      &lt;span class="option-label"&gt;옵션 1&lt;/span&gt;
+      &lt;span class="option-check img-checked"&gt;&lt;img src="/portal-ui/icon/icon-dropdown-selected.svg" alt="selected"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;!-- ... --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+  <h3>주요 클래스/구조 설명</h3>
+  <ul>
+    <li><code>.dropdown-wrapper</code>: 전체 wrapper</li>
+    <li><code>.custom-dropdown</code>: 드롭다운 컨테이너</li>
+    <li><code>.dropdown-component</code>: 상태별 스타일 클래스</li>
+    <li><code>.custom-dropdown-content</code>: 선택된 값/칩 표시 영역</li>
+    <li><code>.custom-dropdown-label</code>: 선택된 값 또는 placeholder</li>
+    <li><code>.clear-button</code>: 선택값 삭제 버튼</li>
+    <li><code>.custom-dropdown-icon</code>: 드롭다운 화살표 아이콘</li>
+    <li><code>.dropdown-overlay</code>: 오버레이(옵션 리스트, body에 Teleport됨)</li>
+    <li><code>.search-header</code>: 검색 입력창 영역</li>
+    <li><code>.search-input</code>: 검색 인풋</li>
+    <li><code>.options-container</code>: 옵션 리스트 컨테이너</li>
+    <li><code>.dropdown-option</code>: 각 옵션</li>
+    <li><code>.option-check</code>: 체크/라디오 아이콘 영역</li>
+    <li><code>.option-label</code>: 옵션 라벨</li>
+    <li><code>.img-checked</code>: 체크 아이콘이 있을 때 오른쪽 마진 제거</li>
+    <li><code>.p-error</code>: 에러 메시지</li>
+  </ul>
+
+  <h3>스타일 기준 요약</h3>
+  <ul>
+    <li>입력창 높이: <code>32px</code></li>
+    <li>입력창 border-radius: <code>6px</code></li>
+    <li>입력창 기본 border: <code>1px solid var(--color-gray4)</code></li>
+    <li>포커스/입력됨: <code>border-color: var(--color-black)</code></li>
+    <li>완료: <code>border-color: var(--color-gray3)</code></li>
+    <li>비활성화: <code>border-color: var(--color-gray4)</code>, <code>color: var(--color-gray3)</code></li>
+    <li>에러: <code>border-color: var(--color-error1)</code></li>
+    <li>placeholder 색상: <code>#666</code></li>
+    <li>옵션 라벨: <code>.option-label</code> (font-size: 14px)</li>
+    <li>다중선택 칩: <code>.chip</code> (font-size: 12px)</li>
+    <li>라디오/체크박스 아이콘: <code>.option-check</code> (20x20px)</li>
+    <li>드롭다운 오버레이: <code>.dropdown-overlay</code> (border-radius: 4px, border: 1px solid #222)</li>
+    <li>에러 메시지: <code>.p-error</code> (글자색: <code>var(--color-error1)</code>)</li>
+  </ul>
+
+  <h3>참고</h3>
+  <ul>
+    <li>단일/다중 선택, 검색, 라디오 스타일 등 다양한 옵션 지원</li>
+    <li>에러 메시지는 <code>errorMessage</code> prop으로 표시</li>
+    <li>비활성/완료/읽기전용 상태에서는 선택 불가</li>
+    <li>컴포넌트는 scoped style로 작성됨</li>
+    <li>아이콘은 <code>/icon</code> 경로의 SVG 파일 사용</li>
+    <li>오버레이는 body에 Teleport되어 렌더링됨</li>
+  </ul>
+  </div>
+
+
+  <div class="component-guide">
+    <h1 id="datepicker-guide">CustomDatepicker 컴포넌트 가이드 (Vue 3 + TypeScript)</h1>
+    <div class="inline-box">
+      <div>
+        <p>아래 이미지는 데이트피커의 주요 상태(기본, 포커스, 입력됨, 완료, 비활성화, 에러, 오픈)를 보여줍니다.</p>
+        <img src="./guide/datepicker-states.png" alt="데이트피커 상태별 예시" />
+        <ul>
+          <li><strong>기본</strong>: 날짜 미선택 상태</li>
+          <li><strong>포커스</strong>: 입력창에 포커스된 상태</li>
+          <li><strong>입력됨</strong>: 날짜가 선택된 상태(pressed)</li>
+          <li><strong>완료</strong>: completed 상태</li>
+          <li><strong>비활성화</strong>: disabled 상태</li>
+          <li><strong>에러</strong>: error 상태</li>
+          <li><strong>오픈</strong>: 달력 팝업이 열린 상태</li>
+        </ul>
+      </div>
+    </div>
+
+  <h3>컴포넌트 사용 예시 (Vue Template)</h3>
+  <pre><code>&lt;CustomDatepicker
+  v-model="selectedDate"
+  :placeholder="'날짜를 선택하세요'"
+  :disabled="false"
+  :variant="'default'"
+  :error="false"
+  error-message="날짜를 선택해주세요."
+/&gt;</code></pre>
+
+  <h3>렌더링 결과 HTML 구조 예시</h3>
+  <pre><code>&lt;div class="datepicker-wrapper"&gt;
+    &lt;div class="datepicker-input datepicker-input--pressed"&gt;
+      &lt;span class="selected-date b4_ko_s"&gt;2024-06-01&lt;/span&gt;
+      &lt;span class="datepicker-icon"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="error-message"&gt;날짜를 선택해주세요.&lt;/div&gt;
+    &lt;div class="datepicker-overlay"&gt;
+      &lt;div class="datepicker-popup"&gt;
+        ... (달력 팝업 내용) ...
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+  <ul>
+    <li><code>.datepicker-wrapper</code>: 전체 wrapper</li>
+    <li><code>.datepicker-input</code>: 입력창 컨테이너</li>
+    <li><code>.datepicker-input--open</code>: 달력 팝업 오픈 상태</li>
+    <li><code>.datepicker-input--disabled</code>: 비활성화 상태</li>
+    <li><code>.datepicker-input--error</code>: 에러 상태</li>
+    <li><code>.datepicker-input--completed</code>: 완료 상태</li>
+    <li><code>.datepicker-input--focus</code>: 포커스 상태</li>
+    <li><code>.datepicker-input--pressed</code>: 날짜 선택(입력됨) 상태</li>
+    <li><code>.selected-date</code>: 선택된 날짜 텍스트</li>
+    <li><code>.selected-date.placeholder</code>: placeholder 텍스트</li>
+    <li><code>.datepicker-icon</code>: 달력 아이콘</li>
+    <li><code>.datepicker-overlay</code>: 오버레이(달력 팝업 배경)</li>
+    <li><code>.datepicker-popup</code>: 달력 팝업</li>
+    <li><code>.calendar-grid</code>: 달력 그리드</li>
+    <li><code>.calendar-day</code>: 날짜 셀</li>
+    <li><code>.calendar-day--selected</code>: 선택된 날짜</li>
+    <li><code>.calendar-day--today</code>: 오늘 날짜</li>
+    <li><code>.calendar-day--prev-month</code>, <code>.calendar-day--next-month</code>: 이전/다음 달 날짜</li>
+    <li><code>.calendar-day--weekend</code>, <code>.calendar-day--saturday</code>, <code>.calendar-day--sunday</code>: 주말/토/일</li>
+    <li><code>.error-message</code>: 에러 메시지</li>
+  </ul>
+
+  <h3>스타일 기준 요약</h3>
+  <ul>
+    <li>입력창 높이: <code>32px</code></li>
+    <li>입력창 패딩: <code>7px 16px</code></li>
+    <li>입력창 border-radius: <code>6px</code></li>
+    <li>입력창 기본 border: <code>1px solid #d1d5db</code></li>
+    <li>포커스/입력됨: <code>border-color: var(--color-black)</code></li>
+    <li>완료: <code>border-color: var(--color-gray4)</code></li>
+    <li>비활성화: <code>border-color: var(--color-gray4)</code>, <code>color: var(--color-gray4)</code></li>
+    <li>에러: <code>border-color: var(--color-error1)</code></li>
+    <li>placeholder 색상: <code>var(--color-gray2)</code></li>
+    <li>선택된 날짜: <code>color: var(--color-black)</code></li>
+    <li>달력 아이콘: <code>.datepicker-icon</code> (20x20px)</li>
+    <li>달력 팝업: <code>.datepicker-popup</code> (min-width: 344px, border-radius: 8px)</li>
+    <li>달력 셀: <code>.calendar-day</code> (40x40px)</li>
+    <li>선택된 날짜 셀: <code>.calendar-day--selected</code> (배경: <code>var(--color-wafer-blue1)</code>, 글자색: <code>var(--color-white)</code>)</li>
+    <li>오늘 날짜 셀: <code>.calendar-day--today</code></li>
+    <li>주말/토/일: <code>.calendar-day--weekend</code>, <code>.calendar-day--saturday</code>, <code>.calendar-day--sunday</code></li>
+    <li>에러 메시지: <code>.error-message</code> (글자색: <code>#ef4444</code>)</li>
+  </ul>
+
+  <h3>참고</h3>
+  <ul>
+    <li>날짜 선택 시 <code>v-model</code>로 바인딩</li>
+    <li>에러 메시지는 <code>error</code>와 <code>errorMessage</code> 조합으로 표시</li>
+    <li>비활성/완료 상태에서는 입력 및 선택 불가</li>
+    <li>컴포넌트는 scoped style로 작성됨</li>
+    <li>아이콘은 <code>/icon</code> 경로의 SVG 파일 사용</li>
+  </ul>
+
+</div>
+
+
+  <div class="component-guide">
+    <h1 id="datatable-guide">DataTable 컴포넌트 가이드 (Vue 3 + TypeScript)</h1>
+    <div class="inline-box">
+      <div>
+        <p>아래 이미지는 데이터테이블의 주요 특징(기본, 헤더/셀 병합, 행 이동 등)을 보여줍니다.</p>
+        <img src="./guide/datatable-states.png" alt="데이터테이블 상태별 예시" />
+        <ul>
+          <li><strong>기본</strong>: 일반 테이블</li>
+          <li><strong>헤더 병합</strong>: headerMergeRules 사용</li>
+          <li><strong>셀 병합</strong>: mergeRules 사용</li>
+          <li><strong>행 이동</strong>: allowReorder true 시</li>
+        </ul>
+      </div>
+    </div>
+
+  <h3>컴포넌트 사용 예시 (Vue Template)</h3>
+  <pre><code>&lt;DataTable
+    :columns="columns"
+    :data="tableData"
+    :merge-rules="mergeRules"
+    :header-merge-rules="headerMergeRules"
+    :allow-reorder="true"
+  /&gt;</code></pre>
+
+  <h3>렌더링 결과 HTML 구조 예시</h3>
+  <pre><code>&lt;div class="data-table"&gt;
+    &lt;table class="table"&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;헤더1&lt;/th&gt;
+          &lt;th colspan="2"&gt;병합헤더&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;th&gt;헤더2&lt;/th&gt;
+          &lt;th&gt;헤더3&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;값1&lt;/td&gt;
+          &lt;td colspan="2"&gt;병합셀&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;값2&lt;/td&gt;
+          &lt;td&gt;값3&lt;/td&gt;
+          &lt;td&gt;값4&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;</code></pre>
+  <ul>
+    <li><code>.data-table</code>: 전체 wrapper</li>
+    <li><code>.table</code>: 테이블 엘리먼트</li>
+    <li><code>th, td</code>: 헤더/셀</li>
+    <li><code>colspan</code>: 병합된 셀/헤더</li>
+    <li><code>tr</code>: 행</li>
+    <li><code>.pd-l-20</code>: 왼쪽 패딩</li>
+    <li><code>.left</code>: 좌측 정렬</li>
+  </ul>
+
+  <h3>스타일 기준 요약</h3>
+  <ul>
+    <li>테이블 border: <code>1px solid var(--color-gray4)</code></li>
+    <li>헤더 border-top: <code>2px solid var(--color-black)</code></li>
+    <li>셀/헤더 패딩: <code>11px 12px</code></li>
+    <li>폰트: <code>font-size: 13px</code>, <code>font-weight: 400</code></li>
+    <li>헤더: <code>font-weight: 700</code>, <code>color: var(--color-black)</code></li>
+    <li>행 hover: <code>background-color: var(--color-bg1)</code></li>
+    <li>셀 좌측정렬: <code>.left</code></li>
+    <li>셀 왼쪽 패딩: <code>.pd-l-20</code></li>
+    <li>가로폭 유틸리티: <code>.w-60</code> ~ <code>.w-240</code></li>
+  </ul>
+
+  <h3>참고</h3>
+  <ul>
+    <li>헤더/셀 병합은 <code>headerMergeRules</code>, <code>mergeRules</code> prop으로 지정</li>
+    <li>행 이동은 <code>allowReorder</code> prop으로 활성화</li>
+    <li>컴포넌트는 scoped style로 작성됨</li>
+  </ul>
+</div>
+
+<div class="component-guide">
+  <h1 id="pagination-guide">Pagination 컴포넌트 가이드 (Vue 3 + TypeScript)</h1>
+  <div class="inline-box">
+    <div>
+      <p>아래 이미지는 페이지네이션의 주요 상태(기본, 활성, 비활성, 화살표 등)를 보여줍니다.</p>
+      <img src="./guide/pagination-states.png" alt="페이지네이션 상태별 예시" />
+      <ul>
+        <li><strong>기본</strong>: 숫자 버튼</li>
+        <li><strong>활성</strong>: active 클래스</li>
+        <li><strong>비활성</strong>: disabled 클래스</li>
+        <li><strong>화살표</strong>: prev, next, first, last</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>컴포넌트 사용 예시 (Vue Template)</h3>
+  <pre><code>&lt;Pagination /&gt;</code></pre>
+
+  <h3>렌더링 결과 HTML 구조 예시</h3>
+  <pre><code>&lt;nav class="pagination"&gt;
+  &lt;ul class="pagination__list"&gt;
+    &lt;li class="pagination__item arrow first"&gt;&lt;/li&gt;
+    &lt;li class="pagination__item arrow prev"&gt;&lt;/li&gt;
+    &lt;li class="pagination__item number active"&gt;&lt;span&gt;1&lt;/span&gt;&lt;/li&gt;
+    &lt;li class="pagination__item number"&gt;&lt;span&gt;2&lt;/span&gt;&lt;/li&gt;
+    ...
+    &lt;li class="pagination__item arrow next"&gt;&lt;/li&gt;
+    &lt;li class="pagination__item arrow last"&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+  <ul>
+    <li><code>.pagination</code>: 전체 wrapper</li>
+    <li><code>.pagination__list</code>: 리스트</li>
+    <li><code>.pagination__item</code>: 각 버튼</li>
+    <li><code>.arrow</code>: 화살표 버튼</li>
+    <li><code>.number</code>: 숫자 버튼</li>
+    <li><code>.active</code>: 현재 페이지</li>
+    <li><code>.disabled</code>: 비활성화</li>
+  </ul>
+
+  <h3>스타일 기준 요약</h3>
+  <ul>
+    <li>버튼 크기: <code>40px × 40px</code></li>
+    <li>버튼 border-radius: <code>50%</code></li>
+    <li>기본 배경: <code>transparent</code></li>
+    <li>활성: <code>background: var(--color-black)</code>, <code>color: var(--color-white)</code></li>
+    <li>비활성: <code>background-image: ...-gray.svg</code></li>
+    <li>hover: <code>background: var(--color-gray5)</code></li>
+  </ul>
+
+  <h3>참고</h3>
+  <ul>
+    <li>아이콘은 <code>/icon</code> 경로의 SVG 파일 사용</li>
+    <li>접근성: <code>.blind</code> 클래스 사용</li>
+    <li>컴포넌트는 scoped style로 작성됨</li>
+  </ul>
+</div>
+
+<div class="component-guide">
+  <h1 id="tooltip-popover-guide">TooltipPopover 컴포넌트 가이드 (Vue 3 + TypeScript)</h1>
+  <div class="inline-box">
+    <div>
+      <p>아래 이미지는 툴팁/팝오버의 주요 상태(위치, 크기, 닫기버튼 등)를 보여줍니다.</p>
+      <img src="./guide/tooltippopover-states.png" alt="툴팁팝오버 상태별 예시" />
+      <ul>
+        <li><strong>기본</strong>: medium, top</li>
+        <li><strong>크기</strong>: small, medium, large, custom</li>
+        <li><strong>화살표 위치</strong>: top, bottom, left, right</li>
+        <li><strong>닫기버튼</strong>: showClose prop</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>컴포넌트 사용 예시 (Vue Template)</h3>
+  <pre><code>&lt;TooltipPopover :visible="true" size="medium" arrow-position="top" /&gt;</code></pre>
+
+  <h3>렌더링 결과 HTML 구조 예시</h3>
+  <pre><code>&lt;div class="tooltip-popover medium top"&gt;
+  &lt;div class="tooltip-arrow top"&gt;&lt;/div&gt;
+  &lt;div class="tooltip-content"&gt;내용&lt;/div&gt;
+  &lt;button class="tooltip-close"&gt;&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+  <ul>
+    <li><code>.tooltip-popover</code>: 전체 팝오버</li>
+    <li><code>.small</code>, <code>.medium</code>, <code>.large</code>, <code>.custom</code>: 크기</li>
+    <li><code>.top</code>, <code>.bottom</code>, <code>.left</code>, <code>.right</code>: 화살표 위치</li>
+    <li><code>.tooltip-arrow</code>: 화살표</li>
+    <li><code>.tooltip-content</code>: 내용</li>
+    <li><code>.tooltip-close</code>: 닫기버튼</li>
+  </ul>
+
+  <h3>스타일 기준 요약</h3>
+  <ul>
+    <li>배경: <code>var(--color-white)</code></li>
+    <li>테두리: <code>1px solid var(--color-gray3)</code></li>
+    <li>border-radius: <code>8px</code></li>
+    <li>box-shadow: <code>0 4px 40px rgba(0,0,0,0.08)</code></li>
+    <li>padding: <code>20px</code></li>
+    <li>크기: <code>min-width: 120~400px</code>, <code>max-width: 220~600px</code></li>
+    <li>화살표: <code>background-image: url('/portal-ui/icon/tooltip-arrow-*.svg')</code></li>
+  </ul>
+
+  <h3>참고</h3>
+  <ul>
+    <li>showClose prop으로 닫기버튼 표시</li>
+    <li>Button 컴포넌트로 커스텀 닫기버튼도 가능</li>
+    <li>컴포넌트는 scoped style로 작성됨</li>
+  </ul>
+</div>
+
+<div class="component-guide">
+  <h1 id="quickmenu-guide">QuickMenu 컴포넌트 가이드 (Vue 3 + TypeScript)</h1>
+  <div class="inline-box">
+    <div>
+      <p>아래 이미지는 퀵메뉴의 주요 상태(기본, 활성, 비활성, 아이템, 애니메이션 등)를 보여줍니다.</p>
+      <img src="./guide/quickmenu-states.png" alt="퀵메뉴 상태별 예시" />
+      <ul>
+        <li><strong>기본</strong>: 우측 하단 고정, title(QUICK) 버튼만 보임</li>
+        <li><strong>활성</strong>: title 클릭 시 아이템 fade-in</li>
+        <li><strong>비활성</strong>: title 재클릭 시 아이템 fade-out</li>
+        <li><strong>AI</strong>: AI 버튼 클릭 시 AI 오픈 및 퀵메뉴 fade-out</li>
+        <li><strong>아이템</strong>: 즐겨찾기 메뉴 등</li>
+        <li><strong>애니메이션</strong>: gsap 순차 fade-in/out</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>컴포넌트 사용 예시 (Vue Template)</h3>
+  <pre><code>&lt;QuickMenu /&gt;</code></pre>
+
+  <h3>렌더링 결과 HTML 구조 예시</h3>
+  <pre><code>&lt;div class="quick-menu"&gt;
+  &lt;button class="quick-menu-item title"&gt;...&lt;/button&gt;
+  &lt;button class="quick-menu-item ai"&gt;...&lt;/button&gt;
+  &lt;button class="quick-menu-item"&gt;...&lt;/button&gt;
+  ...
+&lt;/div&gt;</code></pre>
+  <ul>
+    <li><code>.quick-menu</code>: 전체 wrapper</li>
+    <li><code>.quick-menu-item</code>: 각 버튼</li>
+    <li><code>.title</code>: QUICK 버튼</li>
+    <li><code>.ai</code>: AI 버튼</li>
+    <li><code>.circle</code>: 원형 배경</li>
+    <li><code>.quick-menu-name</code>: 아이템 라벨</li>
+    <li><code>.active</code>: 활성화 상태</li>
+  </ul>
+
+  <h3>스타일 기준 요약</h3>
+  <ul>
+    <li>위치: <code>fixed; bottom: 16px; right: 16px;</code></li>
+    <li>아이템 크기: <code>width: 56px; height: 56px;</code></li>
+    <li>원형: <code>border-radius: 50%</code></li>
+    <li>기본 배경: <code>var(--color-gray2)</code></li>
+    <li>title/ai 배경: <code>var(--color-wafer-blue1)</code>, <code>var(--color-black1)</code></li>
+    <li>아이템 라벨: <code>.quick-menu-name</code> (우측에 노출)</li>
+    <li>애니메이션: gsap opacity, y, pointerEvents</li>
+  </ul>
+
+  <h3>참고</h3>
+  <ul>
+    <li>gsap로 순차 fade-in/out 애니메이션</li>
+    <li>AI 오픈 시 퀵메뉴 fade-out</li>
+    <li>컴포넌트는 scoped style로 작성됨</li>
+  </ul>
+</div>
+
+<div class="component-guide">
+  <h1 id="breadcrumb-guide">Breadcrumb 컴포넌트 가이드 (Vue 3 + TypeScript)</h1>
+  <div class="inline-box">
+    <div>
+      <p>아래 이미지는 브레드크럼의 주요 상태(기본, 활성, 구분자 등)를 보여줍니다.</p>
+      <img src="./guide/breadcrumb-states.png" alt="브레드크럼 상태별 예시" />
+      <ul>
+        <li><strong>기본</strong>: 홈/1Depth/2Depth/3Depth</li>
+        <li><strong>활성</strong>: 현재 페이지(aria-current)</li>
+        <li><strong>구분자</strong>: / (slash 아이콘)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>컴포넌트 사용 예시 (Vue Template)</h3>
+  <pre><code>&lt;Breadcrumb /&gt;</code></pre>
+
+  <h3>렌더링 결과 HTML 구조 예시</h3>
+  <pre><code>&lt;nav class="breadcrumb-wrap"&gt;
+  &lt;ol class="breadcrumb"&gt;
+    &lt;li&gt;&lt;a&gt;&lt;span class="blind"&gt;홈&lt;/span&gt;&lt;img src="/portal-ui/icon/icon-home.svg" /&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a&gt;1Depth&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a&gt;2Depth&lt;/a&gt;&lt;/li&gt;
+    &lt;li aria-current="page"&gt;&lt;a&gt;3Depth&lt;/a&gt;&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+  <ul>
+    <li><code>.breadcrumb-wrap</code>: 전체 wrapper</li>
+    <li><code>.breadcrumb</code>: 리스트</li>
+    <li><code>li</code>: 각 단계</li>
+    <li><code>aria-current="page"</code>: 현재 페이지</li>
+    <li><code>.blind</code>: 시각장애인용 텍스트</li>
+  </ul>
+
+  <h3>스타일 기준 요약</h3>
+  <ul>
+    <li>리스트: <code>display: flex</code></li>
+    <li>구분자: <code>background-image: url('/portal-ui/icon/icon-slash.svg')</code></li>
+    <li>홈: <code>icon-home.svg</code></li>
+    <li>폰트: <code>font-weight: 700</code>, <code>color: var(--color-gray3)</code></li>
+    <li>활성: <code>color: var(--color-black1)</code></li>
+  </ul>
+
+  <h3>참고</h3>
+  <ul>
+    <li>접근성: <code>.blind</code> 클래스 사용</li>
+    <li>컴포넌트는 scoped style로 작성됨</li>
+  </ul>
+</div>
+
+<div class="component-guide">
+  <h1 id="tutorial-guide">Popup 컴포넌트 가이드 - Tutorial (Vue 3 + TypeScript)</h1>
+  <img src="./guide/popup-tutorials.png" alt="팝업 튜토리얼 상태별 예시"/>
+  <ul>
+    <li><strong>Popup</strong> 컴포넌트 활용, width=560, 닫기 버튼 없음</li>
+    <li>Swiper(슬라이드 5개), 커스텀 네비게이션/페이지네이션</li>
+    <li>하단: 확인 버튼, "더 이상 이 메시지 보지 않기", "닫기" 버튼</li>
+    <li>팝업 내 설명/이미지/슬라이드/버튼 등 다양한 UI</li>
+  </ul>
+  <h3>컴포넌트 사용 예시 (Vue Template)</h3>
+  <pre><code>&lt;Popup class="popup-tutorial" :visible="isTutorialPopupOpen" @close="closeTutorialPopup" width="560"&gt;
+    &lt;div class="popup-tutorial-content"&gt;
+      &lt;div class="tutorial-header"&gt;
+        &lt;p class="title h7_en_s"&gt;Welcome to FLOPS&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="tutorial-content"&gt;
+        &lt;div class="tutorial-swiper-wrap"&gt;
+          &lt;Swiper ...&gt;
+            &lt;SwiperSlide&gt;...&lt;/SwiperSlide&gt;
+            ...
+          &lt;/Swiper&gt;
+          &lt;div class="tutorial-swiper-controls"&gt;
+            &lt;div class="custom-swiper-prev swiper-button-prev"&gt;&lt;/div&gt;
+            &lt;div class="custom-swiper-pagination swiper-pagination"&gt;&lt;/div&gt;
+            &lt;div class="custom-swiper-next swiper-button-next"&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="tutorial-desc b3_ko_s"&gt;...&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;template #footer="{ close }"&gt;
+      &lt;Button class="btn-tutorial-confirm" ... @click="close"&gt;확인&lt;/Button&gt;
+      &lt;div class="tutorial-bottom"&gt;
+        &lt;button class="no-more-show" @click="close"&gt;더 이상 이 메시지 보지 않기&lt;/button&gt;
+        &lt;button class="anotehr-close" @click="close"&gt;닫기&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/template&gt;
+  &lt;/Popup&gt;</code></pre>
+  <h3>렌더링 결과 HTML 구조 예시</h3>
+  <pre><code>&lt;div class="popup-deem popup-tutorial"&gt;
+    &lt;div class="popup-container" style="width:560px;"&gt;
+      &lt;div class="popup-container-inner"&gt;
+        &lt;div class="popup-content"&gt;
+          &lt;div class="popup-tutorial-content"&gt;
+            &lt;div class="tutorial-header"&gt;
+              &lt;p class="title h7_en_s"&gt;Welcome to FLOPS&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="tutorial-content"&gt;
+              &lt;div class="tutorial-swiper-wrap"&gt;
+                &lt;div class="tutorialSwiper"&gt;...&lt;/div&gt;
+                &lt;div class="tutorial-swiper-controls"&gt;
+                  &lt;div class="custom-swiper-prev swiper-button-prev"&gt;&lt;/div&gt;
+                  &lt;div class="custom-swiper-pagination swiper-pagination"&gt;&lt;/div&gt;
+                  &lt;div class="custom-swiper-next swiper-button-next"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class="tutorial-desc b3_ko_s"&gt;...&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="popup-footer"&gt;
+          &lt;Button class="btn-tutorial-confirm"&gt;확인&lt;/Button&gt;
+          &lt;div class="tutorial-bottom"&gt;
+            &lt;button class="no-more-show"&gt;더 이상 이 메시지 보지 않기&lt;/button&gt;
+            &lt;button class="anotehr-close"&gt;닫기&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+  <ul>
+    <li><code>.popup-tutorial</code>: 튜토리얼 팝업 전체</li>
+    <li><code>.popup-tutorial-content</code>: 팝업 내부 컨텐츠</li>
+    <li><code>.tutorial-header</code>, <code>.title</code>: 상단 타이틀</li>
+    <li><code>.tutorial-content</code>: 슬라이드/설명 영역</li>
+    <li><code>.tutorial-swiper-wrap</code>, <code>.tutorialSwiper</code>: Swiper 슬라이드</li>
+    <li><code>.tutorial-swiper-controls</code>, <code>.custom-swiper-prev</code>, <code>.custom-swiper-next</code>, <code>.custom-swiper-pagination</code></li>
+    <li><code>.tutorial-desc</code>: 설명 텍스트</li>
+    <li><code>.popup-footer</code>, <code>.btn-tutorial-confirm</code>, <code>.tutorial-bottom</code>, <code>.no-more-show</code>, <code>.anotehr-close</code>: 하단 버튼</li>
+  </ul>
+  <h3>스타일 기준 요약</h3>
+  <ul>
+    <li>팝업: width 560px, 닫기 버튼 없음</li>
+    <li>Swiper: 320px 높이, 5개 슬라이드, 커스텀 네비/페이지네이션</li>
+    <li>하단 버튼: 확인(312px), 좌우 버튼(텍스트)</li>
+    <li>설명: 중앙 정렬, b3_ko_s 스타일</li>
+  </ul>
+  <h3>참고</h3>
+  <ul>
+    <li>Swiper: <code>swiper/vue</code> 사용, 커스텀 네비/페이지네이션</li>
+    <li>팝업 닫기: 확인/닫기/더 이상 보지 않기 모두 닫기 동작</li>
+    <li>팝업은 scoped style로 작성됨</li>
+  </ul>
+</div>
+
+<div class="component-guide">
+  <h1 id="popup-guide">Popup 컴포넌트 가이드 - alert (Vue 3 + TypeScript)</h1>
+  <div class="inline-box">
+    <div>
+      <p>기본 alert 팝업 예시</p>
+      <img src="./guide/popup-alert.png" alt="팝업 상태별 예시" />
+      <ul>
+        <li><strong>기본</strong>: deem 배경, 중앙 정렬</li>
+        <li><strong>크기</strong>: width, minHeight, size prop (small, medium, large)</li>
+        <li><strong>default</strong>: isDefault prop <b>필수</b> (title, subTitle, desc, bottom slot 지원)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>컴포넌트 사용 예시 (Vue Template)</h3>
+  <pre><code>&lt;Popup :visible="true" :min-height="120" size="medium" width="360" isDefault&gt;
+  &lt;template #title&gt;내용&lt;/template&gt;
+  &lt;template #subTitle&gt;내용&lt;/template&gt;
+  &lt;template #bottom&gt;내용&lt;/template&gt;
+&lt;/Popup&gt;</code></pre>
+
+  <h3>렌더링 결과 HTML 구조 예시</h3>
+  <pre><code>
+    &lt;div class="popup-deem popup-default popup-confirm"&gt;
+      &lt;div class="popup-container" style="width: 360px; min-height: 120px;"&gt;
+        &lt;div class="popup-container-inner"&gt;
+          &lt;div class="popup-content"&gt;
+            &lt;div class="popup-default-content"&gt;
+              &lt;div class="default-header"&gt;
+                &lt;div class="title"&gt;내용&lt;/div&gt;
+                &lt;div class="sub-title"&gt;내용&lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class="default-content"&gt;
+            &lt;/div&gt;
+  </code></pre>
+  <ul>
+    <li><code>.popup-deem</code>: deem 배경</li>
+    <li><code>.popup-container</code>: 팝업 컨테이너</li>
+    <li><code>.popup-container-inner</code>: 내부 컨테이너</li>
+    <li><code>.popup-content</code>: 내용</li>
+    <li><code>.popup-default</code>: default 스타일</li>
+  </ul>
+  <h3>스타일 기준 요약</h3>
+  <ul>
+    <li>위치: <code>fixed; inset: 0; display: flex; align-items: center; justify-content: center;</code></li>
+    <li>deem 배경: <code>var(--color-deem)</code></li>
+    <li>컨테이너: <code>background: var(--color-white)</code>, <code>border-radius: 8px</code></li>
+    <li>크기: <code>width</code>, <code>min-width: 320px</code>, <code>max-width: 90vw</code></li>
+    <li>애니메이션: <code>popup-fade</code> transition</li>
+  </ul>
+  <h3>참고</h3>
+  <ul>
+    <li>body 스크롤 lock/unlock</li>
+    <li>default 모드: title, subTitle, desc, bottom slot 지원</li>
+    <li>컴포넌트는 scoped style로 작성됨</li>
+  </ul>
+</div>
+
+<div class="component-guide">
+  <h1 id="popup2-guide">Popup2 컴포넌트 가이드 (Vue 3 + TypeScript)</h1>
+  <div class="inline-box">
+    <div>
+      <p>아래는 Popup2의 주요 상태(기본, 크기, 닫기, header/content/bottom slot 등)를 보여줍니다.</p>
+      <img src="./guide/popup2-states.png" alt="팝업2 상태별 예시" style="width: 360px;"/>
+      <ul>
+        <li><strong>기본</strong>: deem 배경, 중앙 정렬</li>
+        <li><strong>크기</strong>: width, minHeight, size prop (small, medium, large)</li>
+        <li><strong>닫기</strong>: showClose prop, X 버튼</li>
+        <li><strong>header/content/bottom</strong>: slot name</li>
+      </ul>
+    </div>
+  </div>
+  <h3>컴포넌트 사용 예시 (Vue Template)</h3>
+  <pre><code>&lt;Popup2 :visible="true" width="400" :min-height="120" size="medium" :show-close="true"&gt;
+  &lt;template #title&gt;제목&lt;/template&gt;
+  &lt;template #content&gt;내용&lt;/template&gt;
+  &lt;template #bottom-left&gt;&lt;button&gt;취소&lt;/button&gt;&lt;/template&gt;
+  &lt;template #bottom-right&gt;&lt;button&gt;확인&lt;/button&gt;&lt;button&gt;등록&lt;/button&gt;&lt;/template&gt;
+&lt;/Popup2&gt;</code></pre>
+  <h3>렌더링 결과 HTML 구조 예시</h3>
+  <pre><code>&lt;div class="popup-deem"&gt;
+  &lt;div class="popup-container popup-medium"&gt;
+    &lt;div class="popup-container-inner"&gt;
+      &lt;button class="popup-close"&gt;&lt;/button&gt;
+      &lt;div class="popup-content"&gt;
+        &lt;div class="header"&gt;&lt;div class="title"&gt;제목&lt;/div&gt;&lt;/div&gt;
+        &lt;div class="content"&gt;내용&lt;/div&gt;
+        &lt;div class="bottom"&gt;
+          &lt;div class="left"&gt;&lt;button&gt;취소&lt;/button&gt;&lt;/div&gt;
+          &lt;div class="right"&gt;&lt;button&gt;확인&lt;/button&gt;&lt;button&gt;등록&lt;/button&gt;&lt;/div&gt;
+
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+  <ul>
+    <li><code>.popup-deem</code>: deem 배경</li>
+    <li><code>.popup-container</code>: 팝업 컨테이너</li>
+    <li><code>.popup-container-inner</code>: 내부 컨테이너</li>
+    <li><code>.popup-close</code>: 닫기 버튼</li>
+    <li><code>.popup-content</code>: 내용</li>
+    <li><code>.header</code>, <code>.title</code>, <code>.content</code>, <code>.bottom</code>, <code>.left</code>, <code>.right</code>: slot 영역</li>
+    <li><code>.popup-small</code>, <code>.popup-medium</code>, <code>.popup-large</code>: 크기</li>
+  </ul>
+  <h3>스타일 기준 요약</h3>
+  <ul>
+    <li>위치: <code>fixed; inset: 0; display: flex; align-items: center; justify-content: center;</code></li>
+    <li>deem 배경: <code>var(--color-deem)</code></li>
+    <li>컨테이너: <code>background: var(--color-white)</code>, <code>border-radius: 8px</code></li>
+    <li>닫기버튼: <code>background: url('/portal-ui/icon/icon-popup-close.svg')</code></li>
+    <li>크기: <code>width</code>, <code>min-width: 320px</code>, <code>max-width: 90vw</code></li>
+    <li>애니메이션: <code>popup-fade</code> transition</li>
+  </ul>
+  <h3>참고</h3>
+  <ul>
+    <li>body 스크롤 lock/unlock</li>
+    <li>slot/header/content/bottom 지원</li>
+    <li>컴포넌트는 scoped style로 작성됨</li>
+  </ul>
+</div>
+
+<div class="component-guide">
+  <h1 id="filter-guide">Filter 컴포넌트 가이드 (Vue 3 + TypeScript)</h1>
+  <img src="./guide/filter.png" alt="필터 상태별 예시" style="width: 1440px;"/>
+  <div class="inline-box">
+    <div>
+      <p>상단 고정 필터 바, 조건 테이블(동적 추가/삭제), 조건 그룹(최대 4개), 다양한 조건 타입(dropdown, input 등)을 지원합니다. My/Report 팝업, 튜토리얼 팝업, Swiper, Button, CustomDropdown 등 다양한 컴포넌트와 연동됩니다.</p>
+      <ul>
+        <li><strong>조건 테이블</strong>: 여러 개 추가/삭제 가능</li>
+        <li><strong>조건 그룹</strong>: 테이블별 최대 4개, 그룹별 조건 동적 복제</li>
+        <li><strong>조건 타입</strong>: dropdown, input 등</li>
+        <li><strong>팝업</strong>: My/Report/튜토리얼 팝업, Swiper, Button 등 연동</li>
+        <li><strong>애니메이션</strong>: gsap, 딤 오버레이, body 스크롤 lock/unlock</li>
+      </ul>
+    </div>
+  </div>
+  <h3>컴포넌트 사용 예시 (Vue Template)</h3>
+  <pre><code>&lt;Filter :initial-filter-state="true" @toggle-split-screen="..." /&gt;</code></pre>
+  <h3>렌더링 결과 HTML 구조 예시</h3>
+  <pre><code>&lt;div id="FILTER"&gt;
+  &lt;div class="filter-wrap"&gt;
+    &lt;div class="filter-header"&gt;...&lt;/div&gt;
+    &lt;div class="filter-contents"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+  <ul>
+    <li><code>#FILTER</code>: 전체 wrapper, fixed</li>
+    <li><code>.filter-wrap</code>: 필터 전체 영역</li>
+    <li><code>.filter-header</code>: 상단 헤더(타이틀, 아이콘, 툴팁)</li>
+    <li><code>.filter-contents</code>: 조건 테이블/버튼/하단</li>
+    <li><code>.table</code>, <code>.table-title</code>, <code>.conditions</code>, <code>.condition</code>, <code>.condition-title</code>, <code>.condition-data</code></li>
+    <li><code>.btn-group-handle.add/remove</code>: 조건 그룹 추가/삭제</li>
+    <li><code>.filter-bottom</code>, <code>.filter-bottom-inner</code>, <code>.left</code>, <code>.right</code>: 하단 버튼 영역</li>
+  </ul>
+  <h3>스타일 기준 요약</h3>
+  <ul>
+    <li>상단 고정, <code>min-width: 1440px</code>, <code>z-index: 50</code></li>
+    <li>조건 테이블: flex, gap, border, padding</li>
+    <li>버튼: Button 컴포넌트 활용, 아이콘/툴팁/딤 오버레이</li>
+    <li>Swiper, 팝업 등 다양한 컴포넌트와 연동</li>
+  </ul>
+  <h3>참고</h3>
+  <ul>
+    <li>조건 그룹/테이블 동적 추가/삭제</li>
+    <li>My/Report 팝업, 튜토리얼 팝업 등 다양한 팝업 연동</li>
+    <li>gsap 애니메이션, body 스크롤 lock/unlock</li>
+    <li>컴포넌트는 scoped style로 작성됨</li>
+  </ul>
+</div>
+
+<div class="component-guide">
+  <h1 id="gnb-guide">GNB 컴포넌트 가이드 (Vue 3 + TypeScript)</h1>
+  <img src="./guide/gnb.png" alt="GNB 상태별 예시" style="width: 1440px;"/>
+  <div class="inline-box">
+    <div>
+      <p>상단 고정 GNB(Global Navigation Bar), 메뉴/탭/툴팁/배너/버튼 등 다양한 UI를 제공합니다. 메뉴 동적 추가(최대 7개), 탭 전환, 각종 툴팁(알람, 즐겨찾기, 세팅, 유저 등), Popup2, TooltipPopover, DataTable, Button 등 다양한 컴포넌트와 연동됩니다.</p>
+      <ul>
+        <li><strong>메뉴/탭</strong>: 동적 추가, 최대 7개, 탭 전환</li>
+        <li><strong>툴팁</strong>: 알람, 즐겨찾기, 세팅, 유저 등 TooltipPopover 활용</li>
+        <li><strong>배너/버튼</strong>: 하단 배너, 섹션 버튼</li>
+        <li><strong>팝업</strong>: Popup2, DataTable, Button 등 연동</li>
+        <li><strong>애니메이션</strong>: gsap, 딤 오버레이, 다크/라이트 모드 전환</li>
+      </ul>
+    </div>
+  </div>
+  <h3>컴포넌트 사용 예시 (Vue Template)</h3>
+  <pre><code>&lt;Gnb /&gt;</code></pre>
+  <h3>렌더링 결과 HTML 구조 예시</h3>
+  <pre><code>&lt;div id="GNB" class="is-open"&gt;
+  &lt;div class="gnb-wrap"&gt;
+    &lt;div class="gnb-header"&gt;...&lt;/div&gt;
+    &lt;div class="gnb-contents"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button class="btn-gnb-toggle"&gt;...&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+  <ul>
+    <li><code>#GNB</code>: 전체 wrapper, fixed</li>
+    <li><code>.gnb-header</code>: 상단 네비/툴팁/로고</li>
+    <li><code>.gnb-list</code>, <code>.gnb-btn</code>, <code>.is-active</code>: 메뉴/탭/활성화</li>
+    <li><code>.gnb-tooltips</code>, <code>.tooltip</code>, <code>.tooltip-alarm</code>, <code>.tooltip-favorite</code>, <code>.tooltip-setting</code>, <code>.tooltip-user</code></li>
+    <li><code>.gnb-contents</code>, <code>.gnb-contents-inner</code>, <code>.section-menu</code>, <code>.section-banner</code>, <code>.section-button</code></li>
+    <li><code>.btn-gnb-toggle</code>: GNB 열기/닫기 버튼</li>
+  </ul>
+  <h3>스타일 기준 요약</h3>
+  <ul>
+    <li>상단 고정, <code>min-width: 1440px</code>, <code>z-index: 100</code></li>
+    <li>메뉴/탭: flex, gap, border, hover/active 스타일</li>
+    <li>툴팁: TooltipPopover, DataTable, Button 등 연동</li>
+    <li>다크/라이트 모드 전환, gsap 애니메이션</li>
+  </ul>
+  <h3>참고</h3>
+  <ul>
+    <li>메뉴/탭 동적 추가, 툴팁/팝업/배너 등 다양한 UI</li>
+    <li>딤 오버레이, body 스크롤 lock/unlock</li>
+    <li>컴포넌트는 scoped style로 작성됨</li>
+  </ul>
+</div>
+
+
+
+</body>
+</html>

@@ -265,14 +265,15 @@
             </div>
             <div class="section-button">
               <div>
-                <Button text="하위 페이지로 링크" backgroundColor="waferblue1" link />
+                <Button text="디폴트 페이지" backgroundColor="waferblue1" link @click="goToSubPage" page="default"/>
               </div>
               <div>
-                <Button text="하위 페이지로 링크" backgroundColor="gray3" link hoverShrinkAction/>
+                <!-- <Button text="하위 페이지로 링크" backgroundColor="gray3" link hoverShrinkAction/> -->
+                 <Button text="내 보고서 페이지" backgroundColor="gray3" link hoverFillAction @click="goToSubPage" page="my-report" />
               </div>
               <div>
-                <Button text="하위 페이지로 링크" backgroundColor="gray3" link hoverFillAction/>
-              </div>
+                <Button text="공지사항 페이지" backgroundColor="gray3" link hoverFillAction @click="goToSubPage" page="notice"/>
+              </div>           
             </div>
           </div>
         </div>
@@ -390,6 +391,27 @@ const radio = ref('ko');
 const screenMode = ref('light');
 const isPopupVisible = ref(false);
 const isUserTooltipVisible = ref(false);
+
+const goToSubPage = (e: Event) => {
+  //하위 페이지로 이동하는 로직 구현
+  let target = e.currentTarget as HTMLElement;
+
+  console.log(target.getAttribute('page'));
+
+  switch (target.getAttribute('page')) {
+    case 'default':
+      window.open('/#/default', '_blank');
+      break;
+    case 'my-report':
+      window.open('/#/my-report', '_blank');
+      break;
+    case 'notice':
+      window.open('/#/notice', '_blank');
+      break;
+    default:
+      window.location.href = '/';
+  }
+}
 
 const gnbList = ref<GnbList[]>([
   {

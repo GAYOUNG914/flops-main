@@ -9,7 +9,7 @@
           <div class="video-wrap">
             <video autoplay muted loop playsinline>
               <source src="/portal-ui/main/final333.webm" type="video/webm">
-              <source src="/portal-ui/main/video-globe.mov" type="video/mov">
+              <!-- <source src="/portal-ui/main/video-globe.mov" type="video/mov"> -->
             </video>
           </div>
           <div class="bottom-wrap">

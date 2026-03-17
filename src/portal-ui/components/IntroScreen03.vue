@@ -14,7 +14,7 @@
           <div class="video-wrap">
             <video muted playsinline loop ref="videoRef">
               <source src="/portal-ui/main/final333.webm" type="video/webm">
-              <source src="/portal-ui/main/video-globe.mov" type="video/mov">
+              <!-- <source src="/portal-ui/main/video-globe.mov" type="video/mov"> -->
             </video>
           </div>
           <h1 class="logo-text" ref="logoTextRef">
